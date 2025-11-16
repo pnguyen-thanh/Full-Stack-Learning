@@ -1,7 +1,20 @@
 import { getDBConnection } from "./db/db.js";
 import { vinylRecords } from "./data.js";
 
+async function removeDB() {
+    const db = await getDBConnection()
+
+    const query = `DELETE FROM products`
+
+    await db.run(query)
+
+    await db.close()
+    console.log("Delete the records successfully")
+}
+
 async function insertDB() {
+
+    await removeDB()
     const db = await getDBConnection()
 
     for (const record of vinylRecords) {
