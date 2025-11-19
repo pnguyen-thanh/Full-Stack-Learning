@@ -1,15 +1,17 @@
 {
   "type": "module",
   "dependencies": {
+    "bcrypt": "^6.0.0",
     "express": "^5.1.0",
+    "express-session": "^1.18.2",
     "node": "^25.2.0",
     "sqlite": "^5.1.1",
-    "sqlite3": "^5.1.7"
+    "sqlite3": "^5.1.7",
+    "validator": "^13.15.23"
   },
   "name": "testing",
   "version": "1.0.0",
   "main": "createDB.js",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"

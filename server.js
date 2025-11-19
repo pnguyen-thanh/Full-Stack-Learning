@@ -1,20 +1,26 @@
 import express from 'express'
 import { productsRouter } from './routes/products.js'
 import { authRouter } from './routes/auth.js'
-
+import session from 'express-session'
 
 const app = express()
 const PORT = 8000
+const secret = process.env.SPIRAL_SESSION_SECRET || 'jellyfish-baskingshark'
 
 app.use(express.json())
 
-app.use(express.static('public'))
+app.use(session({
+    secret: secret,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        httpOnly: true,
+        secure: false,
+        sameSite: 'lax'
+    }
+}))
 
-// Debug middleware
-app.use((req, res, next) => {
-    console.log(`[${new Date().toISOString()}] ${req.method} ${req.path}`)
-    next()
-})
+app.use(express.static('public'))
 
 app.use('/api/products', productsRouter)
 
