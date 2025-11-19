@@ -5,7 +5,7 @@ signinForm.addEventListener('submit', async (e) => {
     e.preventDefault()
 
     const userName = document.getElementById('signin-username').value.trim()
-    const password = document.getElementById('sigin-password').value.trim()
+    const password = document.getElementById('signin-password').value.trim()
     const submitBtn = signinForm.querySelector('button')
 
     errorMessage.textContent = ''

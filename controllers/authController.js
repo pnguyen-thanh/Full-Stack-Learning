@@ -74,3 +74,9 @@ export async function userLogin (req, res) {
         res.status(500).json({ error: 'Login failed. Please try again.' })
     }
 }
+
+export async function logOut (req, res) {
+    req.session.destroy(() => {
+        res.json({ message: 'Logged out' })
+    })
+}

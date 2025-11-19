@@ -1,10 +1,18 @@
 import { fetchProducts, renderProducts } from "./productUI.js"
 import { fetchGenres, applySearchFilter } from "./productService.js"
+import { checkAuth, renderGreeting, showHideMenuItems } from "./authUI.js"
+import { logout } from "./logout.js"
+
+
+document.getElementById('logout-btn').addEventListener('click', logout)
 
 async function init() {
     fetchGenres()
     const products = await fetchProducts()
+    const name = await checkAuth()
     renderProducts(products)
+    renderGreeting(name)
+    showHideMenuItems(name)
 }
 
 init()
