@@ -1,4 +1,4 @@
-import { getDBConnection } from "./db/db.js";
+import { getDBConnection } from "./Express_Basic/db/db.js";
 
 async function createDB() {
     const db = await getDBConnection()

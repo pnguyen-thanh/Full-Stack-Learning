@@ -1,4 +1,4 @@
-import { getDBConnection } from "../db/db.js"
+import { getDBConnection } from "../Express_Basic/db/db.js"
 import validator from 'validator'
 import bcrypt from 'bcrypt'
 
